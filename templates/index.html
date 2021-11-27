@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  
+  <meta charset="utf-8">
+  <title>ML API purchase</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+    <div class = "container">
+        <h1>Predict purchase made by customer</h1>
+    </div>
+
+        <form action = "{{url_for('result')}}"method = "post">        
+        
+        <label for="Age">Age</label>
+            <input type="text" id="Age" name="Age" placeholder="Age" required = "required">
+            <br>
+        <label for="Job Type">Job Type</label>
+        <select id="Job Type" name="Job Type">
+            <option></option>
+            <option value="0">Employed</option>
+            <option value="1">Retired</option>
+            <option value="2">Student</option>
+            <option value="3">Unemployed</option>      
+        </select>
+            <br>
+        <label for="Marital Status">Marital Status</label>
+        <select id="Marital Status" name="Marital Status">
+            <option></option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+            <br>
+        <label for="Education">Education</label>
+        <select id="Education" name="Education">
+            <option></option>
+            <option value="0">Graduate</option>
+            <option value="1">Primary</option>
+            <option value="2">Secondary</option>              
+        </select>  
+            <br>
+        <label for="Metro City">Metro City</label>
+        <select id="Metro City" name="Metro City">
+            <option></option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>                        
+        </select> 
+            <br> 
+        <label for="Signed in since(Days)">Signed in since(Days)</label>
+            <input type="text" id="Signed in since(Days)" name="Signed in since(Days)" placeholder="Signed in since(Days)" required = "required">
+            <br>
+            <button type = "submit" class = "btn-primary">Predict</button>
+            <br>
+        </form>
+            <br>
+            <br>
+
+        {{prediction_text}}
+    </div>
+</body>
+</html>
